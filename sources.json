@@ -1,5 +1,10 @@
 [
   "https://github.blog/changelog/feed/",
   "https://techblog.lycorp.co.jp/ja/feed/index.xml",
-  "https://creators-note.chatwork.com/rss"
+  "https://creators-note.chatwork.com/rss",
+  "https://jser.info/rss/",
+  "https://engineering.mercari.com/blog/feed.xml",
+  "https://developer.mozilla.org/en-US/blog/rss.xml",
+  "https://chromereleases.googleblog.com/feeds/posts/default?alt=rss",
+  "https://www.publickey1.jp/atom.xml"
 ]
