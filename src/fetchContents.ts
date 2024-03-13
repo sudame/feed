@@ -4,7 +4,9 @@ import type { Item } from "rss-parser";
 import type { Article } from "./models";
 
 export async function fetchContents(): Promise<Article[]> {
-  const parser = new RssParser<Item>();
+  const parser = new RssParser<Item>({
+    timeout: 10000,
+  });
 
   const promises = sources.map(async (source) => await parser.parseURL(source));
 

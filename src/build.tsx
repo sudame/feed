@@ -18,4 +18,6 @@ export async function build(): Promise<void> {
 
   await fs.mkdir("dist", { recursive: true });
   await fs.writeFile("dist/index.html", formatted);
+
+  process.exit(0);
 }
