@@ -1,16 +1,23 @@
 import sources from "../sources.json";
 import RssParser from "rss-parser";
+import type { Item } from "rss-parser";
 import type { Article } from "./models";
 
 export async function fetchContents(): Promise<Article[]> {
-  const parser = new RssParser<Article>();
+  const parser = new RssParser<Item>();
 
   const promises = sources.map(async (source) => await parser.parseURL(source));
 
   const feeds = await Promise.all(promises);
 
   const feed = feeds
-    .flatMap((feed) => feed.items)
+    .flatMap((feed) =>
+      feed.items.map((item) =>
+        Object.assign({}, item, {
+          feedTitle: feed.title ?? null,
+        })
+      )
+    )
     .toSorted((a, b) => {
       if (a.isoDate === b.isoDate) {
         return 0;
